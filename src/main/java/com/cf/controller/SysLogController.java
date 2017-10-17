@@ -31,15 +31,12 @@ public class SysLogController {
 	 */
 	@ResponseBody
 	@RequestMapping("/list")
-	//@RequiresPermissions("sys:log:list")
 	public R list(@RequestParam Map<String, Object> params){
 		//查询列表数据
 		Query query = new Query(params);
 		List<SysLogEntity> sysLogList = sysLogService.queryList(query);
 		int total = sysLogService.queryTotal(query);
-		
 		PageUtils pageUtil = new PageUtils(sysLogList, total, query.getLimit(), query.getPage());
-		
 		return R.ok().put("page", pageUtil);
 	}
 	

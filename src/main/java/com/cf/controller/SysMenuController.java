@@ -36,15 +36,12 @@ public class SysMenuController {
 	 * 所有菜单列表
 	 */
 	@RequestMapping("/list")
-	//@RequiresPermissions("sys:menu:list")
 	public R list(@RequestParam Map<String, Object> params){
 		//查询列表数据
 		Query query = new Query(params);
 		List<SysMenuEntity> menuList = sysMenuService.queryList(query);
 		int total = sysMenuService.queryTotal(query);
-		
 		PageUtils pageUtil = new PageUtils(menuList, total, query.getLimit(), query.getPage());
-		
 		return R.ok().put("page", pageUtil);
 	}
 	
@@ -52,7 +49,6 @@ public class SysMenuController {
 	 * 选择菜单(添加、修改菜单)
 	 */
 	@RequestMapping("/select")
-	//@RequiresPermissions("sys:menu:select")
 	public R select(){
 		//查询列表数据
 		List<SysMenuEntity> menuList = sysMenuService.queryNotButtonList();
@@ -91,7 +87,6 @@ public class SysMenuController {
 	 * 菜单信息
 	 */
 	@RequestMapping("/info/{menuId}")
-	//@RequiresPermissions("sys:menu:info")
 	public R info(@PathVariable("menuId") Long menuId){
 		SysMenuEntity menu = sysMenuService.queryObject(menuId);
 		return R.ok().put("menu", menu);
@@ -102,13 +97,10 @@ public class SysMenuController {
 	 */
 	@SysLog("保存菜单")
 	@RequestMapping("/save")
-	//@RequiresPermissions("sys:menu:save")
 	public R save(@RequestBody SysMenuEntity menu){
 		//数据校验
 		verifyForm(menu);
-		
 		sysMenuService.save(menu);
-		
 		return R.ok();
 	}
 	
@@ -117,7 +109,6 @@ public class SysMenuController {
 	 */
 	@SysLog("修改菜单")
 	@RequestMapping("/update")
-	//@RequiresPermissions("sys:menu:update")
 	public R update(@RequestBody SysMenuEntity menu){
 		//数据校验
 		verifyForm(menu);

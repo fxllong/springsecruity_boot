@@ -93,7 +93,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -138,7 +138,7 @@
 			<artifactId>kaptcha</artifactId>
 			<version>${kaptcha.version}</version>
 		</dependency>
-		
+
 		<!-- 代码生成器所需jar -->
 		<dependency>
 			<artifactId>velocity</artifactId>

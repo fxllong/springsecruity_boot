@@ -9,16 +9,13 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import com.cf.secruity.AuthenticationFailureHandler;
-import com.cf.utils.RRException;
 import com.google.code.kaptcha.Constants;
 
 /**

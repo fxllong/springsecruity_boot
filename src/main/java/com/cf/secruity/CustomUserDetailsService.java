@@ -8,7 +8,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.cf.entity.SysUserEntity;
@@ -41,7 +40,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 		for (String perm : perms) {
 			authorities.add(new SimpleGrantedAuthority(perm));
 		}
-		System.out.println("用户的密码为：------------" + user.getPassword());
 		// 参数username是前台传过来的用户名
 		// logger.info("数据库对应的密码为： " + password);
 		return new org.springframework.security.core.userdetails.User(loginName, user.getPassword(), true, true, true,

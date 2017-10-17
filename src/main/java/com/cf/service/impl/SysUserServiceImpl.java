@@ -4,16 +4,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.cf.dao.SysUserDao;
 import com.cf.entity.SysUserEntity;
 import com.cf.service.SysRoleService;
@@ -67,10 +64,8 @@ public class SysUserServiceImpl implements SysUserService {
 		System.out.println("用户新建的时候的密码为：--------" + user.getPassword());
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		sysUserDao.save(user);
-		
 		//检查角色是否越权
 		checkRole(user);
-		
 		//保存用户与角色关系
 		sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());
 	}
@@ -85,10 +80,8 @@ public class SysUserServiceImpl implements SysUserService {
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
 		}
 		sysUserDao.update(user);
-		
 		//检查角色是否越权
 		checkRole(user);
-		
 		//保存用户与角色关系
 		sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());
 	}

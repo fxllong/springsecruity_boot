@@ -35,7 +35,6 @@ public class SysGeneratorController {
 	 */
 	@ResponseBody
 	@RequestMapping("/list")
-	//@RequiresPermissions("sys:generator:list")
 	public R list(@RequestParam Map<String, Object> params){
 		//查询列表数据
 		Query query = new Query(params);
@@ -51,7 +50,6 @@ public class SysGeneratorController {
 	 * 生成代码
 	 */
 	@RequestMapping("/code")
-	//@RequiresPermissions("sys:generator:code")
 	public void code(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		String[] tableNames = new String[]{};
 		//获取表名，不进行xss过滤

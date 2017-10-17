@@ -40,7 +40,6 @@ public class SysLoginController {
         //生成图片验证码
         BufferedImage image = producer.createImage(text);
         //保存到shiro session
-//        ShiroUtils.setSessionAttribute(Constants.KAPTCHA_SESSION_KEY, text);
         request.getSession().setAttribute(Constants.KAPTCHA_SESSION_KEY, text);
         ServletOutputStream out = response.getOutputStream();
         ImageIO.write(image, "jpg", out);
@@ -59,22 +58,6 @@ public class SysLoginController {
 		if(!captcha.equalsIgnoreCase(kaptcha2)){
 			return R.error("验证码不正确");
 		}
-//		
-//		try{
-//			Subject subject = ShiroUtils.getSubject();
-//			//sha256加密
-//			password = new Sha256Hash(password).toHex();
-//			UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-//			subject.login(token);
-//		}catch (UnknownAccountException e) {
-//			return R.error(e.getMessage());
-//		}catch (IncorrectCredentialsException e) {
-//			return R.error(e.getMessage());
-//		}catch (LockedAccountException e) {
-//			return R.error(e.getMessage());
-//		}catch (AuthenticationException e) {
-//			return R.error("账户验证失败");
-//		}
 		return R.ok();
 	}
 	
