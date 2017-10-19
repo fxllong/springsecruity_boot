@@ -45,12 +45,6 @@ public class MySecurityMetadataSource implements FilterInvocationSecurityMetadat
 		return true;
 	}
 
-	/**
-	 * @PostConstruct是Java EE 5引入的注解，
-	 *                     Spring允许开发者在受管Bean中使用它。当DI容器实例化当前受管Bean时， @PostConstruct注解的方法会被自动触发，从而完成一些初始化工作，
-	 * 
-	 *                     //加载所有资源与权限的关系
-	 */
 	private void loadResourceDefine() {
 		// List<Resources> list = RedisCacheUtil.getCacheList("resourcesList");
 		System.out.println("数据库资源权限初始化-------------------");

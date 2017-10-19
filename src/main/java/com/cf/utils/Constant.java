@@ -6,7 +6,7 @@ package com.cf.utils;
  */
 public class Constant {
 	/** 超级管理员ID */
-	public static final int SUPER_ADMIN = 1;
+	public static final int SUPER_ADMIN = 17;
 
 	/**
 	 * 菜单类型
